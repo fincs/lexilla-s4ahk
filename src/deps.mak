@@ -140,6 +140,20 @@ $(DIR_O)/LexAda.o: \
 	../lexlib/StyleContext.h \
 	../lexlib/CharacterSet.h \
 	../lexlib/LexerModule.h
+$(DIR_O)/LexAHK1.o: \
+	../lexers/LexAHK1.cxx \
+	../../scintilla/include/ILexer.h \
+	../../scintilla/include/Sci_Position.h \
+	../../scintilla/include/Scintilla.h \
+	../include/SciLexer.h \
+	../lexlib/PropSetSimple.h \
+	../lexlib/WordList.h \
+	../lexlib/LexAccessor.h \
+	../lexlib/Accessor.h \
+	../lexlib/StyleContext.h \
+	../lexlib/CharacterSet.h \
+	../lexlib/LexerModule.h \
+	../lexlib/OptionSet.h
 $(DIR_O)/LexAPDL.o: \
 	../lexers/LexAPDL.cxx \
 	../../scintilla/include/ILexer.h \

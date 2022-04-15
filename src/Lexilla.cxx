@@ -31,6 +31,7 @@ using namespace Lexilla;
 extern LexerModule lmA68k;
 extern LexerModule lmAbaqus;
 extern LexerModule lmAda;
+extern LexerModule lmAHK1;
 extern LexerModule lmAPDL;
 extern LexerModule lmAs;
 extern LexerModule lmAsciidoc;
@@ -179,6 +180,7 @@ void AddEachLexer() {
 		&lmA68k,
 		&lmAbaqus,
 		&lmAda,
+		&lmAHK1,
 		&lmAPDL,
 		&lmAs,
 		&lmAsciidoc,

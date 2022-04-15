@@ -25,7 +25,7 @@ BEGIN
 		BLOCK "040904b0"
 		BEGIN
 			VALUE	"CompanyName",	"Neil Hodgson neilh@scintilla.org\0"
-			VALUE	"FileDescription",	"Lexilla.DLL - a Lexical Analysis Component\0"
+			VALUE	"FileDescription",	"Lexilla.DLL (with AutoHotkey support) - a Lexical Analysis Component\0"
 			VALUE	"FileVersion",	VERSION_LEXILLA "\0"
 			VALUE	"InternalName",	"Lexilla\0"
 			VALUE	"LegalCopyright",	"Copyright 2019 by Neil Hodgson\0"
