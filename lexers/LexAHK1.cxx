@@ -8,6 +8,7 @@
  **  - Fix folding
  **  - Fix expression lines starting with ( as being misdetected as continuation sections
  **  - Add ;{ and ;} section folding support
+ **  - Highlight all brace types as "expression operators"
  **/
 // Copyright 1998-2012 by Neil Hodgson <neilh@scintilla.org>
 // The License.txt file describes the conditions under which this software may be distributed.
@@ -287,7 +288,7 @@ static void ColouriseAHK1Doc(
 				if (bOnlySpaces && sc.ch == ')') {
 					// End of continuation section
 					bContinuationSection = false;
-					sc.SetState(SCE_AHK1_SYNOPERATOR);
+					sc.SetState(SCE_AHK1_EXPOPERATOR);
 				}
 			} else if (bInExprString) {
 				if (sc.ch == '\"') {
@@ -363,11 +364,11 @@ static void ColouriseAHK1Doc(
 				sc.Forward();
 			} else if (sc.ch == '{' || sc.ch == '}') {
 				// Code block or special key {Enter}
-				sc.SetState(SCE_AHK1_SYNOPERATOR);
+				sc.SetState(SCE_AHK1_EXPOPERATOR);
 			} else if (bOnlySpaces && sc.ch == '(' && !LineHasChar(styler, sc.currentPos, ')')) {
 				// Continuation section
 				bContinuationSection = true;
-				sc.SetState(SCE_AHK1_SYNOPERATOR);
+				sc.SetState(SCE_AHK1_EXPOPERATOR);
 				nextState = SCE_AHK1_STRING;	// !!! Can be an expression!
 			} else if (sc.Match(':', '=') ||
 					sc.Match('+', '=') ||
@@ -465,10 +466,10 @@ static void FoldAHK1Doc(Sci_PositionU startPos, Sci_Position length, int initSty
 				}
 			}
 		}
-		if (style == SCE_AHK1_SYNOPERATOR) {
-			if (ch == '(' || ch == '{') {
+		if (style == SCE_AHK1_EXPOPERATOR) {
+			if (ch == '(' || ch == '{' || ch == '[') {
 				levelNext++;
-			} else if (ch == ')' || ch == '}') {
+			} else if (ch == ')' || ch == '}' || ch == ']') {
 				levelNext--;
 			}
 		}
