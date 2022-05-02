@@ -81,9 +81,9 @@ static void HighlightKeyword(
 
 	if (controlFlow.InList(currentWord)) {
 		sc.ChangeState(SCE_AHK1_WORD_CF);
-	} else if (commands.InList(currentWord)) {
+	} else if (sc.ch != '(' && commands.InList(currentWord)) {
 		sc.ChangeState(SCE_AHK1_WORD_CMD);
-	} else if (functions.InList(currentWord)) {
+	} else if (sc.ch == '(' && functions.InList(currentWord)) {
 		sc.ChangeState(SCE_AHK1_WORD_FN);
 	}  else if (currentWord[0] == '#' && directives.InList(currentWord + 1)) {
 		sc.ChangeState(SCE_AHK1_WORD_DIR);
