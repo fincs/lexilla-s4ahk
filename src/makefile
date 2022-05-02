@@ -19,7 +19,13 @@ DIR_BIN=../bin
 
 WARNINGS = -Wpedantic -Wall -Wextra
 
-ifdef WINDIR
+ifdef windir
+	WINDOWS := 1
+else ifdef WINDIR
+	WINDOWS := 1
+endif
+
+ifdef WINDOWS
     SHARED_NAME = lexilla
     SHAREDEXTENSION = dll
     WINDRES ?= windres
@@ -45,13 +51,13 @@ BASE_FLAGS += --std=c++17
 
 ifdef CLANG
 CXX = clang++
-ifdef WINDIR
+ifdef WINDOWS
 # Clang on Win32 uses MSVC headers so will complain about strcpy without this
 DEFINES += -D_CRT_SECURE_NO_DEPRECATE=1
 endif
 endif
 
-ifdef WINDIR
+ifdef WINDOWS
     LDFLAGS += -static -mwindows
 	ifndef CLANG
 	    LDFLAGS += -Wl,--kill-at
@@ -61,11 +67,11 @@ else
 endif
 
 # Take care of changing Unix style '/' directory separator to '\' on Windows
-normalize = $(if $(WINDIR),$(subst /,\,$1),$1)
+normalize = $(if $(windir),$(subst /,\,$1),$1)
 
-PYTHON = $(if $(WINDIR),pyw,python3)
+PYTHON = $(if $(windir),pyw,python3)
 
-ifdef WINDIR
+ifdef windir
     DEL = $(if $(wildcard $(dir $(SHELL))rm.exe), $(dir $(SHELL))rm.exe -f, del /q)
 else
     DEL = rm -f
