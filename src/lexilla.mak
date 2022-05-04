@@ -83,6 +83,7 @@ LEX_OBJS=\
 	$(DIR_O)\LexAbaqus.obj \
 	$(DIR_O)\LexAda.obj \
 	$(DIR_O)\LexAHK1.obj \
+	$(DIR_O)\LexAHK2.obj \
 	$(DIR_O)\LexAPDL.obj \
 	$(DIR_O)\LexAsciidoc.obj \
 	$(DIR_O)\LexAsm.obj \

@@ -154,6 +154,20 @@ $(DIR_O)/LexAHK1.obj: \
 	../lexlib/CharacterSet.h \
 	../lexlib/LexerModule.h \
 	../lexlib/OptionSet.h
+$(DIR_O)/LexAHK2.obj: \
+	../lexers/LexAHK2.cxx \
+	../../scintilla/include/ILexer.h \
+	../../scintilla/include/Sci_Position.h \
+	../../scintilla/include/Scintilla.h \
+	../include/SciLexer.h \
+	../lexlib/WordList.h \
+	../lexlib/LexAccessor.h \
+	../lexlib/StyleContext.h \
+	../lexlib/CharacterSet.h \
+	../lexlib/CharacterCategory.h \
+	../lexlib/LexerModule.h \
+	../lexlib/OptionSet.h \
+	../lexlib/DefaultLexer.h
 $(DIR_O)/LexAPDL.obj: \
 	../lexers/LexAPDL.cxx \
 	../../scintilla/include/ILexer.h \

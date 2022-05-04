@@ -32,6 +32,7 @@ extern LexerModule lmA68k;
 extern LexerModule lmAbaqus;
 extern LexerModule lmAda;
 extern LexerModule lmAHK1;
+extern LexerModule lmAHK2;
 extern LexerModule lmAPDL;
 extern LexerModule lmAs;
 extern LexerModule lmAsciidoc;
@@ -181,6 +182,7 @@ void AddEachLexer() {
 		&lmAbaqus,
 		&lmAda,
 		&lmAHK1,
+		&lmAHK2,
 		&lmAPDL,
 		&lmAs,
 		&lmAsciidoc,
