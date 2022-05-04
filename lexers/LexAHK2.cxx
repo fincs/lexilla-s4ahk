@@ -376,7 +376,7 @@ namespace {
 		for (; sep > str && isWhitespace(sep[-1]); sep--);
 
 		// Check and remove "up" modifier along with even more trailing whitespace
-		if (sep >= (str + 3) && isWhitespace(sep[-2]) && sep[-1] == 'u' && sep[0] == 'p') {
+		if (sep >= (str + 3) && isWhitespace(sep[-3]) && sep[-2] == 'u' && sep[-1] == 'p') {
 			for (sep -= 3; sep > str && isWhitespace(sep[-1]); sep--);
 		}
 
